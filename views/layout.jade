@@ -1,0 +1,32 @@
+doctype 5
+html
+head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //
+       HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries 
+    //
+       WARNING: Respond.js doesn't work if you view the page via file:// 
+    //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    
+    link(href='stylesheets/style.css', media='all', rel='stylesheet', type='text/css')
+  body
+    #wrap
+      .navbar.navbar-fixed-top(role='navigation')
+        .navbar-container
+          .navbar-header
+            a.navbar-brand(href='/')
+              <h2>Vigi<span>App</span></h2>
+          .collapse.navbar-collapse
+            span.icon-bar  Contact
+
+      .container
+        block content
+    #footer
+      .container
+        p.text-muted.credit
+          VigiApp
+    script(src='javascripts/jquery.js')
+    script(src='http://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=false&language=es&region=CO', type='text/javascript')
+    script(src='javascripts/app.js');
