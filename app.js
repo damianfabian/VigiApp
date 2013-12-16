@@ -9,6 +9,10 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
+var monk = require('monk');
+var db = monk('localhost:27017/VigiApp');
+
+var userReports = require('./routes/userReports');
 var app = express();
 
 // all environments
@@ -31,9 +35,12 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-//app.get('/users', user.list);
-//app.get('/jobs', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+//create the db object
+var userReport = new userReports.userReport('localhost', 27017);
+//get the post request and save the report
+app.post('/', userReports.userReport.prototype.save(db));
